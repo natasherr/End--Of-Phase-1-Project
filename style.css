@@ -1,0 +1,60 @@
+#the_body{
+    width: 100%;
+    max-width: 540px;
+    background: linear-gradient( #614385, #516395);
+    margin: 90px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight:bolder;
+}
+
+#securePass{
+    text-decoration: underline;
+}
+
+#user_name{
+    width: 450px;
+    height: 40px;
+    border-radius: 8px ;
+}
+
+#generating{
+    width: 360px;
+    height: 30px;
+    border-radius: 6px;
+    background-color: rgb(153, 235, 153);
+}
+
+#regenerate{
+    width: 350px;
+    height: 30px;
+    border-radius: 6px;
+    background-color: rgb(153, 235, 153);
+    color: black;
+}
+
+#text{
+    color: antiquewhite;
+}
+ #securePass{
+    color: rgb(81, 240, 8);
+ }
+
+body{background-color: black;}
+
+#gen_button{
+    padding: 16px, 50px;
+    cursor: pointer;
+    border-radius: 40px;
+    background: skyblue;
+}
+
+#regen_button{
+    padding: 16px, 50px;
+    cursor: pointer;
+    border-radius: 40px;
+    background: skyblue;
+}
+
+
