@@ -28,6 +28,6 @@ HTML, CSS , Javascript, git, json-server
 email :: ashley.natasha1@student.moringaschool.com
 
 ### License
-*LIcenced under the [MT-licence](https://github.com/natasherr/Portfolio/blob/master/LICENSE.md)
+*LIcenced under the [MIT-licence](https://github.com/natasherr/End--Of-Phase-1-Project/blob/master/LICENSE.md)
 
 Copyright (c) 2024 **Ashley Natasha Otsiula*
