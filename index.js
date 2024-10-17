@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const theList = document.createElement("li")
         // Inside that list, it should display the name of the user, the password generated and a delete button that enables the user to delete the password.
         // the ' onclick="deletePass(${pass.id})" ' will call a function that enables the user to delete the password.
-        theList.innerHTML = `${pass.name} : ${pass.password} <br> <button onclick="deletePass('${pass.id}')" class = "btn btn-danger btn-sm">Delete</button>`
+        theList.innerHTML = `${pass.name} : ${pass.password} <br> <button onclick="deletePass(${pass.id})" class = "btn btn-danger btn-sm">Delete</button>`
         passwdList.appendChild(theList)
     }
  }
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // The function that enables the user to delete the password once the delete button is clicked.
  function deletePass(id){
     // We are going to fetch a specific id that's going to be deleted.
-    fetch(`http://localhost:3000/${id}` , {
+    fetch(`http://localhost:3000/passwords/${id}` , {
       method: "DELETE"},)
      .then ((res) => res.json())
      .then (() => {
@@ -98,7 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
     generating.innerText = newPass
 
     if(theName){
-      let idDefault = 1
         const newPassObject = {
             id: Date.now(), 
             name: theName, 
@@ -133,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
      const lastPass = passwords[passwords.length - 1]
      if(lastPass){
         fetch(`http://localhost:3000/passwords/${lastPass.id}`,{
-            method : "PUT",
+            method : "PATCH",
             headers : {"Content-Type" : "application/json"},
             body: JSON.stringify({password: regenPass})
          })
