@@ -34,14 +34,14 @@
     color: black;
 }
 
-#text{
+.text{
     color: antiquewhite;
 }
- #securePass{
+#securePass{
     color: rgb(81, 240, 8);
- }
+}
 
-body{background-color: black;}
+#body{background-color: black;}
 
 #gen_button{
     padding: 16px, 50px;

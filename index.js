@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", (events) => {
+   events.preventDefault()
 // This is where the generated passwords will be stored
  let passwords =[]
 // 1.
@@ -34,7 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const theList = document.createElement("li")
         // Inside that list, it should display the name of the user, the password generated and a delete button that enables the user to delete the password.
         // the ' onclick="deletePass(${pass.id})" ' will call a function that enables the user to delete the password.
-        theList.innerHTML = `${pass.name} : ${pass.password} <br> <button onclick="deletePass(${pass.id})" class = "btn btn-danger btn-sm">Delete</button>`
+        theList.innerHTML += 
+        `<div>
+         ${pass.name} : ${pass.password}  
+         </div>`
+         theList.innerHTML +=`<div>
+          <button id="delete" onclick="deletePass(${pass.id})" class = "btn btn-danger  btn-sm">Delete</button>
+         </div>`
         passwdList.appendChild(theList)
     }
  }
@@ -46,10 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(`https://end-of-phase-1-project.onrender.com/${id}` , {
       method: "DELETE"},)
      .then ((res) => res.json())
-     .then (() => {
-        passwords = passwords.filter(pass => pass.id !== id)
-        showPass()
-        alert("Deleted!") })
+     .then (dispayAll())
      .catch((error) => alert("Failed to delete!"))
  }
 
@@ -78,21 +82,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 5.
 // Fetching and displaying all the passwords.
- function dispayAll () {
-    fetch("https://end-of-phase-1-project.onrender.com/passwords")
-     .then((res) => res.json())
-     .then((data) => {
-        passwords = data
-        showPass()
-     })
- }
+function dispayAll () {
+   fetch("https://end-of-phase-1-project.onrender.com/passwords")
+    .then((res) => res.json())
+    .then((data) => {
+       passwords = data
+       showPass()
+    })
+}
+
+// 6.
+// The function that enables a user to update a password through regenerating.
+function regenPass (id, newPass){
+   fetch(`https://end-of-phase-1-project.onrender.com/passwords/${id}`, {
+      method: "PATCH",
+      headers: {
+         "Content-Type" : "application/json",
+         "Accept" : "application/json"
+      },
+      body: JSON.stringify({password: newPass})
+   })
+    .then((res) => res.json())
+    .then(displayAll())
+} 
+
+
 
 // Dealing with the functionality of the buttons.
 
 // Generate Button
- const generate = document.getElementById("gen_button")
- generate.addEventListener("click", () => {
-    const theName = document.getElementById("user_name").value.trim()
+   const generate = document.getElementById("gen_button")
+   generate.addEventListener("click", () => {
+    const theName = document.getElementById("user_name").value
     const newPass = generatePass()
     const generating = document.getElementById("generating")
     generating.innerText = newPass
@@ -108,17 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
         savePass(newPassObject)}
 
      else{alert("Insert your name!")}
- })
-
-// Copy Button
-// The Copy button was unsuccesfull and was not actually copying to the clipboard.
-//  const copy = document.getElementById("copy")
-//  copy.addEventListener("click", () => {
-//     const password = document.getElementById("generating").innerText
-//     navigator.clipboard.writeText(password).then(() => {
-//         alert("Copied!")
-//     })
-//  })
+    }) 
 
 // Regenerate Button
   const regen_button = document.getElementById("regen_button")
