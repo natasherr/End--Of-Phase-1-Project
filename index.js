@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // The function that enables the user to delete the password once the delete button is clicked.
  function deletePass(id){
     // We are going to fetch a specific id that's going to be deleted.
-    fetch(`http://localhost:3000/passwords/${id}` , {
+    fetch(`https://end-of-phase-1-project.onrender.com/${id}` , {
       method: "DELETE"},)
      .then ((res) => res.json())
      .then (() => {
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     body: JSON.stringify(password)
     }
 // The fetch operation.The URL being called is redirecting to db.json
-  fetch("http://localhost:3000/passwords", configObj)
+  fetch("https://end-of-phase-1-project.onrender.com/passwords", configObj)
    .then ((res) => res.json())
    .then ((object) => {
      passwords.push(object)
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // 5.
 // Fetching and displaying all the passwords.
  function dispayAll () {
-    fetch("http://localhost:3000/passwords")
+    fetch("https://end-of-phase-1-project.onrender.com/passwords")
      .then((res) => res.json())
      .then((data) => {
         passwords = data
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if(passwords.length > 0) {
      const lastPass = passwords[passwords.length - 1]
      if(lastPass){
-        fetch(`http://localhost:3000/passwords/${lastPass.id}`,{
+        fetch(`https://end-of-phase-1-project.onrender.com/${lastPass.id}`,{
             method : "PATCH",
             headers : {"Content-Type" : "application/json"},
             body: JSON.stringify({password: regenPass})
