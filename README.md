@@ -17,7 +17,9 @@ In the current era that we live in, there has been a significant rise in cyber c
 
 ## Live server
 * You can view the web live on [Phase 1 Project](https://natasherr.github.io/End--Of-Phase-1-Project/)
-* This is the Render Link [Render](https://end-of-phase-1-project.onrender.com)
+* This is the link redirecting to [Render](https://end-of-phase-1-project.onrender.com)
+* The link to my [Slides] (https://docs.google.com/presentation/d/12pceQXIK6YC59OiJ5WTZtyEPwe_1MXKSrxM5gM28pXs/edit?usp=sharing)
+
 ## Known Bugs
 The application works perfectly well.
 
