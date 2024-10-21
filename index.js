@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", (events) => {
  // Since the password should be random, it should include different letters(both in uppercase and lowercase), symbols and numbers.
   const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   const lowerCase = "abcdefghijklmnopqrstuvwxyz"
-  const theSymbols = "!@#$%^&*()_+-:?.;|"
+  const theSymbols = "!@#$%^&*()_+-:?.;|><,/"
   const theNumbers = "1234567890"
 
    const combination = upperCase + lowerCase + theSymbols + theNumbers
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", (events) => {
  function deletePass(id){
     // We are going to fetch a specific id that's going to be deleted.
     fetch(`https://end-of-phase-1-project.onrender.com/${id}` , {
-      method: "DELETE"},)
+      method: "DELETE"})
      .then ((res) => res.json())
      .then (dispayAll())
      .catch((error) => alert("Failed to delete!"))
